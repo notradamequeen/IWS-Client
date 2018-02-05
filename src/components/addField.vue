@@ -63,10 +63,11 @@ export default {
       data.fieldCount += 1;
     },
     onFormSubmit: (e) => {
+      console.log(e)
       const datas = Array.from(e.target[0].childNodes).map((node)=>{
         return { 
-            field_name : node.childNodes[0].childNodes[0].value,
-            data_type: node.childNodes[2].childNodes[0].value
+            field_name : node.childNodes[0].childNodes[3].value,
+            data_type: node.childNodes[2].childNodes[3].value
         };
       });
       const opt = {
@@ -78,9 +79,14 @@ export default {
       };
       fetch('https://intense-bayou-56091.herokuapp.com/iws/api/field/', opt).then((response)=>
         response.json()).then((res) => {
-            window.location.href = '/'
+            if(res.status == 201) {
+                window.location.href = '/'
+            } else {
+                console.log(res)
+            }
+            
         }).catch((err) => {
-            console.log(err)
+            
         });
     },
   },
