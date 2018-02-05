@@ -10,9 +10,11 @@
                   <fieldset>
                       <div class="form-group row" v-for="i in (0, fieldCount)">
                           <div class="col-sm-5">
+                              <label>Field Name</label><br>
                               <input name="field_name" type="text" class="form-control" palceholder="field name" />
                           </div>
                           <div class="col-sm-5">
+                              <label>Data Type</label><br>
                               <select name="data_type" class="form-control">
                                   <option value="text">Text</option>
                                   <option value="date">Date</option>
@@ -21,9 +23,20 @@
                                   <option value="currency">Currency</option>
                               </select>
                           </div>
-                          <div class="col-sm-2">
-                              <button v-if="i == 1" v-on:click.prevent="fieldCount+=1">+</button>
-                              <button v-else v-on:click.prevent="fieldCount-=1">-</button>
+                          <div class="col-sm-2" style="margin-top:5px">
+                              <br/>
+                              <button
+                                class="btn btn-primary"
+                                v-if="i == 1"
+                                v-on:click.prevent="fieldCount+=1">
+                                +
+                            </button>
+                              <button
+                                class="btn btn-primary"
+                                v-else
+                                v-on:click.prevent="fieldCount-=1">
+                                -
+                              </button>
                           </div>
                       </div>
                   </fieldset>  

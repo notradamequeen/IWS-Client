@@ -8,7 +8,10 @@
             <div class="card-body text-primary">
                 <form v-on:submit.prevent="onFormSubmit">
                     <fieldset>
-                        <div class="form-group row" v-for="i in (0, fieldCount)">
+                        <div
+                          class="form-group row"
+                          v-for="i in (0, fieldCount)"
+                          style="margin-top:5px">
                             <div class="col-sm-5">
                                 <label>Risk Type Name</label>
                             </div>
@@ -16,8 +19,18 @@
                                 <input name="name" type="text" class="form-control"/>
                             </div>
                             <div class="col-sm-2">
-                               <button v-if="i == 1" v-on:click.prevent="fieldCount+=1">+</button>
-                               <button v-else v-on:click.prevent="fieldCount-=1">-</button>
+                              <button
+                                class="btn btn-primary"
+                                v-if="i == 1"
+                                v-on:click.prevent="fieldCount+=1">
+                                +
+                              </button>
+                                <button
+                                  class="btn btn-primary"
+                                  v-else
+                                  v-on:click.prevent="fieldCount-=1">
+                                  -
+                                </button>
                             </div>
                         </div>
                     </fieldset>
