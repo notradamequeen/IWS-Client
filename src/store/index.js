@@ -19,7 +19,7 @@ const store = new Vuex.Store({
           'Accept': 'application/json'
         }
       };
-      const res = await fetch('http://localhost:8000/iws/api/risktype', opt).then((response)=>
+      const res = await fetch('https://intense-bayou-56091.herokuapp.com/iws/api/risktype/', opt).then((response)=>
         response.json())
         // .then((res)=>{
         commit('RISK_TYPE_MUTATION', res);
@@ -34,7 +34,7 @@ const store = new Vuex.Store({
           'Accept': 'application/json'
         }
       };
-      const res = await fetch(`http://localhost:8000/iws/api/risktype/${id}`, opt).then((response)=>
+      const res = await fetch(`https://intense-bayou-56091.herokuapp.com/iws/api/risktype/${id}`, opt).then((response)=>
         response.json())
         // .then((res)=>{
       commit('RISK_TYPE_DETAIL_MUTATION', res);
@@ -49,7 +49,7 @@ const store = new Vuex.Store({
             'Accept': 'application/json'
           }
         };
-        const res = await fetch('http://localhost:8000/iws/api/field', opt).then((response)=>
+        const res = await fetch('https://intense-bayou-56091.herokuapp.com/iws/api/', opt).then((response)=>
           response.json())
           // .then((res)=>{
           commit('FIELD_LIST_MUTATION', res);

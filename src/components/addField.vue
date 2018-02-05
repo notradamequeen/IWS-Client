@@ -63,9 +63,9 @@ export default {
         },
         body: JSON.stringify(datas)
       };
-      fetch('http://localhost:8000/iws/api/field/', opt).then((response)=>
+      fetch('https://intense-bayou-56091.herokuapp.com/iws/api/field/', opt).then((response)=>
         response.json()).then((res) => {
-            this.$swal('hello');
+            window.location.href = '/'
         }).catch((err) => {
             console.log(err)
         });
