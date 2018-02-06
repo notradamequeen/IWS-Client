@@ -13,7 +13,7 @@
         </option>
       </select>
       <br/>
-      <a :href="'/#/form/'+risk_type_id" class="btn btn-success">Load form</a>
+      <a :href="risk_type_id !== null ? '/#/form/'+risk_type_id : '#'" class="btn btn-success">Load form</a>
     </div>
   </div>
 </div>
@@ -33,7 +33,7 @@ export default {
     Select,
   },
   methods: {
-    
+
   },
   mounted() {
     this.$store.dispatch('GET_RISK_TYPE_LIST')
