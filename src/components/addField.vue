@@ -79,11 +79,7 @@ export default {
       };
       fetch('https://intense-bayou-56091.herokuapp.com/iws/api/field/', opt).then((response)=>
         response.json()).then((res) => {
-            if(res.status == 201) {
-                window.location.href = '/'
-            } else {
-                console.log(res)
-            }
+            window.location.href = '/'
             
         }).catch((err) => {
             

@@ -11,13 +11,13 @@ const store = new Vuex.Store({
   },
   actions: {
     GET_RISK_TYPE_LIST: async function({ commit }) {
+      let header = new Headers({
+        // 'Access-Control-Allow-Origin':'*',
+        'Accept': 'application/json'
+      });
       const opt = {
         method:'GET',
-          // mode:'cors',
-        headers: {
-          // 'Access-Control-Allow-Origin':'*',
-          'Accept': 'application/json'
-        }
+        headers: header
       };
       const res = await fetch('https://intense-bayou-56091.herokuapp.com/iws/api/risktype/', opt).then((response)=>
         response.json())
@@ -26,15 +26,16 @@ const store = new Vuex.Store({
         // })
     },
     GET_RISK_TYPE_DETAIL: async function({ commit }, id) {
+      let header = new Headers({
+        // 'Access-Control-Allow-Origin':'*',
+        'Accept': 'application/json'
+      });
       const opt = {
         method:'GET',
-          // mode:'cors',
-        headers: {
-          // 'Access-Control-Allow-Origin':'*',
-          'Accept': 'application/json'
-        }
+        // mode:'no-cors',
+        headers: header,
       };
-      const res = await fetch(`https://intense-bayou-56091.herokuapp.com/iws/api/risktype/${id}`, opt).then((response)=>
+      const res = await fetch(`https://intense-bayou-56091.herokuapp.com/iws/api/risktype/${id}/`, opt).then((response)=>
         response.json())
         // .then((res)=>{
       commit('RISK_TYPE_DETAIL_MUTATION', res);
