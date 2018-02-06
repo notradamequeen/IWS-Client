@@ -9,11 +9,12 @@
         data-target="#navbarColor01"
         aria-controls="navbarColor01"
         aria-expanded="false"
-        aria-label="Toggle navigation">
+        aria-label="Toggle navigation"
+        v-on:click="isShow=='' ? isShow='show' : isShow=''">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarColor01">
+      <div :class="'collapse navbar-collapse '+isShow" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#/">Home <span class="sr-only">(current)</span></a>
@@ -38,6 +39,23 @@
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      isShow: '',
+      showClass: '',
+    }
+  },
+  methods: {
+    Show: () => {
+      if (this.isShow == false){
+        this.isShow = true;
+        this.showClass = "show"
+      } else {
+        this.isShow = false;
+        this.showClass = '';
+      }
+    },
+  },
 };
 </script>
 
